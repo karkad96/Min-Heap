@@ -2,9 +2,9 @@
 
 int main(int argc, char* argv[])
 {
-	minHeap* pMinHeap = new minHeap(5, RND);
+	minHeap* pMinHeap = new minHeap(8, RND);
 	
-	system("pause");
+	pMinHeap->printMinHeap();
 	
 	return 0;
 }

@@ -13,6 +13,7 @@ public:
 	minHeap(int size, int rnd=0);
 	~minHeap();
 
+	void printMinHeap();
 	void minHeapify(int i);
 	void buildMinHeap();
 
