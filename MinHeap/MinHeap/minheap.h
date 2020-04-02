@@ -13,10 +13,12 @@ public:
 	minHeap(int size, int rnd=0);
 	~minHeap();
 
+	void minHeapify(int i);
+	void buildMinHeap();
+
 	int parent(int i);
 	int left(int i);
 	int right(int i);
-	void minHeapify(int i);
 
 private:
 	int* pArr;

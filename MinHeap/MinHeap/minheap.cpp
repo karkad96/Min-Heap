@@ -11,15 +11,14 @@ minHeap::minHeap(int size, int rnd)
 		srand(time(NULL));
 
 		for (int i = 0; i < size; i++)
-		{
 			pArr[i] = rand() % 100;
-			printf("%d\n", pArr[i]);
-		}
+
 	}
 }
 
 minHeap::~minHeap()
 {
+	free(pArr);
 }
 
 int minHeap::parent(int i)
@@ -57,5 +56,13 @@ void minHeap::minHeapify(int i)
 		pArr[i] = tmp;
 
 		minHeapify(mn);
+	}
+}
+
+void minHeap::buildMinHeap()
+{
+	for (int i = size / 2 - 1; i >= 0; i--)
+	{
+		minHeapify(i);
 	}
 }
