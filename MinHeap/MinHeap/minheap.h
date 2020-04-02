@@ -5,6 +5,10 @@
 
 class minHeap
 {
+public:
 	minHeap(int size);
 	~minHeap();
+
+private:
+	int* pArr;
 };
