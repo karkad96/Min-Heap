@@ -1,16 +1,16 @@
 #include "minheap.h"
 
-minHeap::minHeap(int size, int rnd)
+minHeap::minHeap(int length, int rnd)
 {
-	this->size = size;
+	this->length = length;
 
-	pArr = (int*)calloc(size, sizeof(int));
+	pArr = (int*)calloc(length, sizeof(int));
 
 	if (rnd == RND)
 	{
 		srand(time(NULL));
 
-		for (int i = 0; i < size; i++)
+		for (int i = 0; i < length; i++)
 			pArr[i] = rand() % 100;
 
 		buildMinHeap();
@@ -43,11 +43,11 @@ void minHeap::minHeapify(int i)
 	int l = left(i);
 	int r = right(i);
 
-	if (l < size && pArr[l] < pArr[i])
+	if (l < heapSize && pArr[l] < pArr[i])
 		mn = l;
 	else
 		mn = i;
-	if (r < size && pArr[r] < pArr[mn])
+	if (r < heapSize && pArr[r] < pArr[mn])
 		mn = r;
 
 	if (mn != i)
@@ -62,15 +62,32 @@ void minHeap::minHeapify(int i)
 
 void minHeap::buildMinHeap()
 {
-	for (int i = size / 2 - 1; i >= 0; i--)
+	heapSize = length;
+
+	for (int i = length / 2 - 1; i >= 0; i--)
 	{
 		minHeapify(i);
 	}
 }
 
+void minHeap::heapSort()
+{
+	buildMinHeap();
+
+	for (int i = length - 1; i >= 1; i--)
+	{
+		int tmp = pArr[i];
+		pArr[i] = pArr[0];
+		pArr[0] = tmp;
+
+		heapSize--;
+		minHeapify(0);
+	}
+}
+
 void minHeap::printMinHeap()
 {
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < length; i++)
 		printf("%d\t", pArr[i]);
 	printf("\n");
 }

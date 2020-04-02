@@ -10,12 +10,13 @@
 class minHeap
 {
 public:
-	minHeap(int size, int rnd=0);
+	minHeap(int length, int rnd=0);
 	~minHeap();
 
 	void printMinHeap();
 	void minHeapify(int i);
 	void buildMinHeap();
+	void heapSort();
 
 	int parent(int i);
 	int left(int i);
@@ -23,5 +24,6 @@ public:
 
 private:
 	int* pArr;
-	int size;
+	int heapSize;
+	int length;
 };
