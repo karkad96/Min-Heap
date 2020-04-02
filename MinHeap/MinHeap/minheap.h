@@ -2,11 +2,15 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
+#define RND 1
+#define REA 5
 
 class minHeap
 {
 public:
-	minHeap(int size);
+	minHeap(int size, int rnd=0);
 	~minHeap();
 
 	int parent(int i);
@@ -15,4 +19,5 @@ public:
 
 private:
 	int* pArr;
+	int size;
 };
