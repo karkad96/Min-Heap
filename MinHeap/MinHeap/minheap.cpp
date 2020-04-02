@@ -36,3 +36,26 @@ int minHeap::right(int i)
 {
 	return 2 * i + 1;
 }
+
+void minHeap::minHeapify(int i)
+{
+	int mn = INT_MAX;
+	int l = left(i);
+	int r = right(i);
+
+	if (l <= size && pArr[l] < pArr[i])
+		mn = l;
+	else
+		mn = i;
+	if (r <= size && pArr[r] < pArr[mn])
+		mn = r;
+
+	if (mn != i)
+	{
+		int tmp = pArr[mn];
+		pArr[mn] = pArr[i];
+		pArr[i] = tmp;
+
+		minHeapify(mn);
+	}
+}

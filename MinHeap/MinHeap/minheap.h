@@ -16,6 +16,7 @@ public:
 	int parent(int i);
 	int left(int i);
 	int right(int i);
+	void minHeapify(int i);
 
 private:
 	int* pArr;
